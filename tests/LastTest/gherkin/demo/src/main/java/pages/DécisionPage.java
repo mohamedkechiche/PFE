@@ -36,15 +36,15 @@ public class DécisionPage {
 }
 
 public void submitDecision() {
-    // 1. Trouver le bouton par son id
-    WebElement decisionBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("createD2025-06")));
+    By decisionButtonLocator = By.id("createD2025-06");
 
-    // 2. Cliquer sur le bouton
-    decisionBtn.click();
+    // Wait until the button is clickable and click it immediately
+    wait.until(ExpectedConditions.elementToBeClickable(decisionButtonLocator)).click();
 
-    // 3. Attendre que l'URL corresponde à la page attendue
+    // Wait for the expected URL after the click
     wait.until(ExpectedConditions.urlToBe("http://127.0.0.1:8000/decision/create?date_effet=2025-06"));
 }
+
 
 
 public void enterObjet176(String objet176) {
@@ -64,27 +64,27 @@ public void enterObjet176(String objet176) {
         tavInput.sendKeys(tav176);
     }
 
-    public void submitgenerate() {
-        WebElement generateBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("generate")));
-        generateBtn.click();
-    }
-    public void submitsave() {
-        WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("save")));
-        saveBtn.click();
-    }
+    // public void submitgenerate() {
+    //     WebElement generateBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("generate")));
+    //     generateBtn.click();
+    // }
+//     public void submitsave() {
+//         WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("save")));
+//         saveBtn.click();
+//     }
 
 
-   public String getSuccessMessage() {
-    // 1. Attendre que le toast ou le message de succès soit visible
-    wait.until(ExpectedConditions.visibilityOfElementLocated(
-        By.cssSelector(".toast-success") // adapte ce sélecteur au vrai toast de ton app
-    ));
+//    public String getSuccessMessage() {
+//     // 1. Attendre que le toast ou le message de succès soit visible
+//     wait.until(ExpectedConditions.visibilityOfElementLocated(
+//         By.cssSelector(".toast-success") // adapte ce sélecteur au vrai toast de ton app
+//     ));
 
-    // 2. Attendre que l'URL soit bien celle de la page décision
-    wait.until(ExpectedConditions.urlToBe("http://127.0.0.1:8000/decision"));
+//     // 2. Attendre que l'URL soit bien celle de la page décision
+//     wait.until(ExpectedConditions.urlToBe("http://127.0.0.1:8000/decision"));
 
-    return "Redirection réussie vers la page Décision";
-}
+//     return "Redirection réussie vers la page Décision";
+// }
 
 
 

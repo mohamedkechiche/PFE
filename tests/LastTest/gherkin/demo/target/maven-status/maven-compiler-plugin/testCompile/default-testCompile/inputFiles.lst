@@ -1,5 +1,7 @@
-C:\Users\asus\Desktop\gherkin\demo\src\test\java\StepDefinitions\LoginStep.java
-C:\Users\asus\Desktop\gherkin\demo\src\test\java\ExtentReport\ExtentManager.java
-C:\Users\asus\Desktop\gherkin\demo\src\test\java\base\TestBase.java
-C:\Users\asus\Desktop\gherkin\demo\src\test\java\StepDefinitions\Hooks.java
-C:\Users\asus\Desktop\gherkin\demo\src\test\java\CucumberRunner.java
+D:\PFE FINAL\avancement\tests\LastTest\gherkin\demo\src\test\java\StepDefinitions\Hooks.java
+D:\PFE FINAL\avancement\tests\LastTest\gherkin\demo\src\test\java\CucumberRunner.java
+D:\PFE FINAL\avancement\tests\LastTest\gherkin\demo\src\test\java\ExtentReport\ExtentManager.java
+D:\PFE FINAL\avancement\tests\LastTest\gherkin\demo\src\test\java\base\TestBase.java
+D:\PFE FINAL\avancement\tests\LastTest\gherkin\demo\src\test\java\StepDefinitions\LoginStep.java
+D:\PFE FINAL\avancement\tests\LastTest\gherkin\demo\src\test\java\StepDefinitions\DécisionStep.java
+D:\PFE FINAL\avancement\tests\LastTest\gherkin\demo\src\test\java\StepDefinitions\LogoutStep.java

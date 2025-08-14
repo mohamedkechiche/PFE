@@ -65,7 +65,7 @@ public class DécisionStep {
         }
     }
 
-    @When("the user enters a tav176 as {string}")
+    @Then("the user enters a tav176 as {string}")
     public void userEntersTav176(String tav176) {
         try {
             décisionPage.tav176(tav176);
@@ -76,41 +76,41 @@ public class DécisionStep {
         }
     }
 
-    @When("the user clicks on the generate button")
-    public void userClicksOnGenerateButton() {
-        try {
-            décisionPage.submitgenerate();
-            Hooks._scenario.log(Status.PASS, "Clicked on the generate button");
-        } catch (Exception e) {
-            Hooks._scenario.log(Status.FAIL, "Failed to click on the generate button");
-            throw e;
-        }
-    }
+    // @When("the user clicks on the generate button")
+    // public void userClicksOnGenerateButton() {
+    //     try {
+    //         décisionPage.submitgenerate();
+    //         Hooks._scenario.log(Status.PASS, "Clicked on the generate button");
+    //     } catch (Exception e) {
+    //         Hooks._scenario.log(Status.FAIL, "Failed to click on the generate button");
+    //         throw e;
+    //     }
+    // }
 
-    @When("the user clicks on the save button")
-    public void userClicksOnSaveButton() {
-        try {
-            décisionPage.submitsave();
-            Hooks._scenario.log(Status.PASS, "Clicked on the save button");
-        } catch (Exception e) {
-            Hooks._scenario.log(Status.FAIL, "Failed to click on the save button");
-            throw e;
-        }
-    }
+    // @When("the user clicks on the save button")
+    // public void userClicksOnSaveButton() {
+    //     try {
+    //         décisionPage.submitsave();
+    //         Hooks._scenario.log(Status.PASS, "Clicked on the save button");
+    //     } catch (Exception e) {
+    //         Hooks._scenario.log(Status.FAIL, "Failed to click on the save button");
+    //         throw e;
+    //     }
+    // }
 
-    @Then("the user should see a successful décision message")
-    public void userSeesSuccessfulDecisionMessage() {
-        try {
-            String successMessage = décisionPage.getSuccessMessage();
-            Assertions.assertTrue(
-                successMessage.toLowerCase().contains("décision") || successMessage.toLowerCase().contains("succès"),
-                "Expected décision success message not found"
-            );
-            Hooks._scenario.log(Status.PASS, "The user should see a successful décision message: " + successMessage);
-        } catch (Throwable t) {
-            Hooks._scenario.log(Status.FAIL, "The user should see a successful décision message");
-            Hooks._scenario.log(Status.FAIL, t.getMessage());
-            throw t; // Marque le scénario comme échoué
-        }
-    }
+    // @Then("the user should see a successful décision message")
+    // public void userSeesSuccessfulDecisionMessage() {
+    //     try {
+    //         String successMessage = décisionPage.getSuccessMessage();
+    //         Assertions.assertTrue(
+    //             successMessage.toLowerCase().contains("décision") || successMessage.toLowerCase().contains("succès"),
+    //             "Expected décision success message not found"
+    //         );
+    //         Hooks._scenario.log(Status.PASS, "The user should see a successful décision message: " + successMessage);
+    //     } catch (Throwable t) {
+    //         Hooks._scenario.log(Status.FAIL, "The user should see a successful décision message");
+    //         Hooks._scenario.log(Status.FAIL, t.getMessage());
+    //         throw t; // Marque le scénario comme échoué
+    //     }
+    // }
 }

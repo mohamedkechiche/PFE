@@ -24,7 +24,7 @@ public class ExtentManager {
 
             extent = new ExtentReports();
             extent.attachReporter(sparkReporter);
-            extent.setSystemInfo("User", "BEN YOUSSEF Oussama");
+            extent.setSystemInfo("User", "Med Kechiche");
         }
         return extent;
     }

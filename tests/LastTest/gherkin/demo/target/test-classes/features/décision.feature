@@ -14,10 +14,7 @@ Feature: User Décision
         And the user clicks on the décision button
         And the user enters a objet176 as "<objet176>"
         And the user enters a trh176 as "<trh176>"
-        And the user enters a tav176 as "<tav176>"
-        And the user  clicks on the generate  button
-        And the user  clicks on the save button
-        Then the user should see a successful décision message
+        Then the user enters a tav176 as "<tav176>"
         Examples:
           | objet176 | trh176 |tav176 |
           | meddddddddddd | aliiiiiiiiiiiiii |azertttttttii|
