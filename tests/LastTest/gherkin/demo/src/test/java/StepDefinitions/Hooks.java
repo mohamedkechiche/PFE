@@ -28,7 +28,7 @@ public class Hooks {
                 // Capture screenshot on failure and attach to Extent Report
                 String screenshotPath = TestBase.captureScreenshot(scenario.getName());
                 if (!screenshotPath.isEmpty()) {
-                    _scenario.fail("Scenario Failed", 
+                    _scenario.fail("Scenario Failed",
                         MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
                 } else {
                     _scenario.fail("Scenario Failed: Screenshot not captured");

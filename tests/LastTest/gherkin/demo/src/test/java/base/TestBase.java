@@ -6,10 +6,12 @@ import java.time.Duration;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -20,18 +22,22 @@ public class TestBase {
     private static WebDriverWait wait;
 
     public static void setUp() {
-        if (driver == null) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        }
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new"); // headless Chrome
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--user-data-dir=/tmp/unique_user_dir"); // unique for CI
+
+        driver = new ChromeDriver(options);
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 
     public static void tearDown() {
         if (driver != null) {
             driver.quit();
-            driver = null; 
+            driver = null;
         }
     }
 
@@ -43,7 +49,7 @@ public class TestBase {
         try {
             TakesScreenshot screenshotDriver = (TakesScreenshot) driver;
             File screenshotFile = screenshotDriver.getScreenshotAs(OutputType.FILE);
-            
+
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
             String timestamp = dateFormat.format(new Date());
             String filePath = "target/screenshots/" + scenarioName + "_" + timestamp + ".png";
