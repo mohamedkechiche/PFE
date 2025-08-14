@@ -19,7 +19,7 @@ public class loginPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
     public void openLoginPage() {
-    driver.get("http://127.0.0.1:8000/login");
+    driver.get("http://localhost:8000/login");
 }
 
 
