@@ -21,8 +21,7 @@ public class Hooks {
         _scenario = extentReport.createTest(scenario.getName());
     }
 
-    @After
-public void afterScenario(Scenario scenario) {
+    public void afterScenario(Scenario scenario) {
     try {
         if (_scenario != null) {
             if (scenario.isFailed()) {
@@ -48,4 +47,5 @@ public void afterScenario(Scenario scenario) {
         }
         TestBase.tearDown();
     }
+}
 }
