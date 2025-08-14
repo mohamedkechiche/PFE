@@ -724,7 +724,7 @@ export default function PersonnelIndex({
                             <SelectItem value="all">All Avancement</SelectItem>
                             <SelectItem value="M">Mensuel</SelectItem>
                             <SelectItem value="H">Horraire</SelectItem>
-                            <SelectItem value="sans_avancement">Sans Avancemente</SelectItem>
+                            <SelectItem value="sans_avancement">Sans Avancement</SelectItem>
                             <SelectItem value="Avancement_depassee">Avancement_depassee</SelectItem>
                         </SelectContent>
                     </Select>

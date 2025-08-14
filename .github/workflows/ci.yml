@@ -9,6 +9,36 @@ on:
       - main  # Trigger on pull requests to main
 
 jobs:
+  # First job: Run Cucumber tests
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Java
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Cache Maven dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Run Maven tests
+      - name: Run Cucumber tests
+        run: mvn test
+
+  # Second job: Build and push Docker image
   build-and-push:
     runs-on: ubuntu-latest
 
