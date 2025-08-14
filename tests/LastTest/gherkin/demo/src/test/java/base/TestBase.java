@@ -33,11 +33,10 @@ public class TestBase {
     String uniqueUserDir = "/tmp/unique_user_dir_" + System.currentTimeMillis();
     options.addArguments("--user-data-dir=" + uniqueUserDir);
 
+    WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver(options);
     driver.manage().window().setSize(new Dimension(1920, 1080));
 
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver(options);
 }
 
     public static void tearDown() {
