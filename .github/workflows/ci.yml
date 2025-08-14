@@ -30,7 +30,7 @@ jobs:
       # Run Laravel app in background
       - name: Run Laravel App
         run: |
-          php artisan serve --host=0.0.0.0 --port=8080 &
+          php artisan serve --host=0.0.0.0 --port=8000 &
           echo "Waiting for Laravel to start..."
           sleep 10  # wait for server to start
 
