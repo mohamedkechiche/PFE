@@ -22,22 +22,17 @@ public class TestBase {
     private static WebDriverWait wait;
 
     public static void setUp() {
-    ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless"); // headless Chrome
-    options.addArguments("--no-sandbox");
-    options.addArguments("--disable-dev-shm-usage");
-    options.addArguments("--disable-gpu");
-    options.addArguments("--remote-allow-origins=*");
+        ChromeOptions options = new ChromeOptions();
+        // options.addArguments("--headless=new"); // headless Chrome
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--user-data-dir=/tmp/unique_user_dir"); // unique for CI
 
-    // Generate a unique user data directory for each test run
-    String uniqueUserDir = "/tmp/unique_user_dir_" + System.currentTimeMillis();
-    options.addArguments("--user-data-dir=" + uniqueUserDir);
-
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver(options);
-    driver.manage().window().setSize(new Dimension(1920, 1080));
-
-}
+        driver = new ChromeDriver(options);
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+    }
 
     public static void tearDown() {
         if (driver != null) {
