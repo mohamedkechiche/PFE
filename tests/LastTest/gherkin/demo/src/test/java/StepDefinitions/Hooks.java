@@ -22,8 +22,9 @@ public class Hooks {
     }
 
     @After
-    public void afterScenario(Scenario scenario) {
-        try {
+public void afterScenario(Scenario scenario) {
+    try {
+        if (_scenario != null) {
             if (scenario.isFailed()) {
                 // Capture screenshot on failure and attach to Extent Report
                 String screenshotPath = TestBase.captureScreenshot(scenario.getName());
@@ -36,13 +37,15 @@ public class Hooks {
             } else {
                 _scenario.pass("Scenario Passed");
             }
-        } catch (Exception e) {
+        }
+    } catch (Exception e) {
+        if (_scenario != null) {
             _scenario.fail("Error in afterScenario: " + e.getMessage());
-        } finally {
+        }
+    } finally {
+        if (extentReport != null) {
             extentReport.flush();
         }
-
-
         TestBase.tearDown();
     }
 }
