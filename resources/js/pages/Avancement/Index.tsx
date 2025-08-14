@@ -905,12 +905,14 @@ export default function AvancementIndex({
                                     }
                                     setStep((s) => s + 1);
                                 }}
+                                id="next"
                             >
                                 Suivant
+
                             </Button>
                         )}
                     </div>
-                </div>
+                </div>*
 
                 <div className="mb-4 flex gap-4">
                     <div>
@@ -956,6 +958,7 @@ export default function AvancementIndex({
                                                         type="checkbox"
                                                         checked={selectedIds.length === personnels.data.length && personnels.data.length > 0}
                                                         onChange={handleSelectAll}
+                                                        id="select"
                                                     />
                                                 </th>
                                                 <th className="text-muted-foreground h-10 px-1 text-left align-middle font-medium">Mle</th>

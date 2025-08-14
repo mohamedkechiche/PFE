@@ -8,6 +8,7 @@ use App\Http\Controllers\HavancementsController;
 use App\Http\Controllers\TableauavancementController;
 use App\Http\Controllers\DecisionsController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\SalaireController;
 use App\Http\Middleware\RoleMiddleware;
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -41,8 +42,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     ]);
 // })->name('decisions.index');
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
-Route::get('/admin/users', [TestController::class, 'adminUsers']);
-Route::get('/admin/salaire', [TestController::class, 'adminSalaire']);
+    Route::resource('salaire', SalaireController::class);
+    Route::get('/admin/users', [TestController::class, 'adminUsers']);
+    Route::get('/admin/salaire', [TestController::class, 'adminSalaire']);
+    Route::put('/admin/salaire/{id}', [TestController::class, 'updateSalaire'])->name('admin.salaire.update');
 });
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

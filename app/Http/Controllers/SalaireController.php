@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\T_salaire;
 
 class SalaireController extends Controller
 {
@@ -11,7 +12,8 @@ class SalaireController extends Controller
      */
     public function index()
     {
-        //
+        $salaires = T_salaire::all();
+        return view('salaire.index', compact('salaires'));
     }
 
     /**
@@ -43,7 +45,8 @@ class SalaireController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $salaire = T_salaire::findOrFail($id);
+        return view('salaire.edit', compact('salaire'));
     }
 
     /**
@@ -51,7 +54,9 @@ class SalaireController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $salaire = T_salaire::findOrFail($id);
+        $salaire->update($request->all());
+        return redirect()->route('salaire.index')->with('success', 'Salaire modifié avec succès.');
     }
 
     /**

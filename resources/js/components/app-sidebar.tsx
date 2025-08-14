@@ -29,15 +29,17 @@ const mainNavItems: NavItem[] = [
         icon: ListTodo,
     },
      {
-        title: 'Historique',
-        href: '/historique',
-        icon: Archive,
-    },
+    title: 'Historique',
+    href: '/historique',
+    icon: Archive,
+    id: 'nav-historique',
+},
     {
         title: 'Decision',
         href: '/decision',
         icon: CheckCircle2,
     },
+
 ];
 const adminNavItems: NavItem[] = [
     {

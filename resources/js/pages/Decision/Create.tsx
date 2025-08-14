@@ -283,7 +283,7 @@ export default function DecisionCreate({ lastDecisions = {} }: { lastDecisions: 
         }
     };
 
-    // Modifiez handleSaveAll pour stopper si un champ est vide
+ 
     const handleSaveAll = async () => {
         const allAvancements = [...avNormaux, ...av57];
         let hasError = false;
@@ -336,7 +336,6 @@ export default function DecisionCreate({ lastDecisions = {} }: { lastDecisions: 
             <div className="flex flex-col gap-4 md:flex-row">
                 <div className="flex-1">
                     <label className="mb-1 block text-sm font-medium">Objet</label>
-                    {/* <input type='hidden' name='id' value={id} /> */}
                     <input
                         type="text"
                         className={`w-full rounded border px-2 py-1 ${fieldErrors[a.id]?.objet ? 'border-red-500' : ''}`}
@@ -349,6 +348,7 @@ export default function DecisionCreate({ lastDecisions = {} }: { lastDecisions: 
                             }));
                         }}
                         placeholder="Objet de la décision"
+                        id={`objet${a.id}`}
                     />
                     {fieldErrors[a.id]?.objet && <span className="text-xs text-red-600">Ce champ est requis.</span>}
                 </div>
@@ -366,6 +366,7 @@ export default function DecisionCreate({ lastDecisions = {} }: { lastDecisions: 
                         }}
                         placeholder="Texte RH"
                         rows={2}
+                        id={`trh${a.id}`}
                     />
                     {fieldErrors[a.id]?.trh && <span className="text-xs text-red-600">Ce champ est requis.</span>}
                 </div>
@@ -383,6 +384,7 @@ export default function DecisionCreate({ lastDecisions = {} }: { lastDecisions: 
                         }}
                         placeholder="Texte AV"
                         rows={2}
+                        id={`tav${a.id}`}
                     />
                     {fieldErrors[a.id]?.tav && <span className="text-xs text-red-600">Ce champ est requis.</span>}
                 </div>
@@ -423,10 +425,10 @@ export default function DecisionCreate({ lastDecisions = {} }: { lastDecisions: 
                 </div>
                 <h1 className="mb-4 text-2xl font-bold">Modèles de Décision à remplir - {dateEffet}</h1>
                 <div className="mb-4 flex flex-wrap justify-end gap-2">
-                    <button className="rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700" onClick={handleGenerateAllPDFs} type="button">
+                    <button className="rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700" onClick={handleGenerateAllPDFs} type="button" id="generate">
                         Générer tous les PDF
                     </button>
-                    <button className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" onClick={handleSaveAll} type="button">
+                    <button className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700" onClick={handleSaveAll} type="button" id="save">
                         Enregistrer tous
                     </button>
                 </div>

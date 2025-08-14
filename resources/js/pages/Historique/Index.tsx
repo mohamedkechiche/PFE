@@ -305,6 +305,7 @@ export default function AvancementIndex({ tableauavancements, tableauavancements
                                                     router.visit(`/decision/create?date_effet=${list.NDate_effet}`);
                                                 }}
                                                 title="Créer une décision"
+                                                id={`createD${list.NDate_effet}`}
                                             >
                                                 <FilePlus className="h-4 w-4" />
                                             </Button>
