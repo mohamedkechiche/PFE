@@ -21,7 +21,7 @@ public class Hooks {
         _scenario = extentReport.createTest(scenario.getName());
     }
 
-    public void afterScenario(Scenario scenario) {
+    @After public void afterScenario(Scenario scenario) {
     try {
         if (_scenario != null) {
             if (scenario.isFailed()) {

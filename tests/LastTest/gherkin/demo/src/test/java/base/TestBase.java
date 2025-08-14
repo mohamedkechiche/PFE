@@ -23,7 +23,7 @@ public class TestBase {
 
     public static void setUp() {
     ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless=new"); // headless Chrome
+    options.addArguments("--headless"); // headless Chrome
     options.addArguments("--no-sandbox");
     options.addArguments("--disable-dev-shm-usage");
     options.addArguments("--disable-gpu");
