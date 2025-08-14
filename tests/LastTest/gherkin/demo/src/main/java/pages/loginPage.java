@@ -16,7 +16,7 @@ public class loginPage {
     public loginPage(WebDriver driver) {
         if (driver == null) throw new IllegalArgumentException("Driver cannot be null");
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
     public void openLoginPage() {
     driver.get("http://localhost:8000/login");

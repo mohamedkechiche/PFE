@@ -27,11 +27,6 @@ jobs:
       - name: Install Composer dependencies
         run: composer install
 
-      # Run Laravel app in background
-      - name: Run Laravel App
-        run: |
-          php artisan serve --host=0.0.0.0 --port=8000 &
-
       # Set up Node.js if you have React frontend
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -42,6 +37,22 @@ jobs:
         run: |
           npm install
           npm run build
+
+      # Run Laravel app in background
+      - name: Run Laravel App
+        run: |
+          php artisan serve --host=0.0.0.0 --port=8000 &
+          echo "Waiting for Laravel to start..."
+          for i in {1..30}; do
+            if curl -s http://localhost:8000 > /dev/null; then
+              echo "Laravel is ready!"
+              break
+            fi
+            echo "Waiting for Laravel to be ready..."
+            sleep 2
+          done
+
+
 
       # Set up Java for Selenium
       - name: Set up JDK 21
