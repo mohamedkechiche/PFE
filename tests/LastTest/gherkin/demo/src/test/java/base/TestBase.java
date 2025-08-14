@@ -23,12 +23,12 @@ public class TestBase {
 
     public static void setUp() {
         ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--headless=new"); // headless Chrome
+        options.addArguments("--headless=new"); // headless Chrome
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
         options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--user-data-dir=/tmp/unique_user_dir"); // unique for CI
+        // options.addArguments("--user-data-dir=/tmp/unique_user_dir"); // unique for CI
 
         driver = new ChromeDriver(options);
         driver.manage().window().setSize(new Dimension(1920, 1080));
