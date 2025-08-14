@@ -31,8 +31,6 @@ jobs:
       - name: Run Laravel App
         run: |
           php artisan serve --host=0.0.0.0 --port=8000 &
-          echo "Waiting for Laravel to start..."
-          sleep 10  # wait for server to start
 
       # Set up Node.js if you have React frontend
       - name: Set up Node.js
